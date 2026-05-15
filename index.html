@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <title>Lamborghini Huracán — Cinematic Experience</title>
+  <meta name="description" content="An immersive 3D cinematic experience showcasing the Lamborghini Huracán supercar — explore every component as you scroll." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">LAMBORGHINI</div>
+      <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+      <div class="loader-percent" id="loaderPercent">0%</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-brand">
+      <span class="nav-bull">🐂</span>
+      <span class="nav-name">LAMBORGHINI</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link active">HOME</a></li>
+      <li><a href="#engine" class="nav-link">ENGINE</a></li>
+      <li><a href="#aero" class="nav-link">AERO</a></li>
+      <li><a href="#wheels" class="nav-link">WHEELS</a></li>
+      <li><a href="#interior" class="nav-link">INTERIOR</a></li>
+      <li><a href="#exhaust" class="nav-link">EXHAUST</a></li>
+    </ul>
+    <div class="nav-speed" id="navSpeed">0 km/h</div>
+  </nav>
+
+  <!-- Scroll Progress -->
+  <div id="scrollProgress"><div id="scrollBar"></div></div>
+
+  <!-- Canvas Container -->
+  <div id="canvasContainer">
+    <canvas id="mainCanvas"></canvas>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="section hero-section">
+    <div class="hero-content">
+      <p class="hero-sub">2024 SERIES</p>
+      <h1 class="hero-title">HURACÁN<br/><span class="hero-accent">STO</span></h1>
+      <p class="hero-desc">Born from the racetrack. Built for the road.<br/>640 horsepower of pure Italian engineering.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-val">640</span><span class="stat-label">HP</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-val">2.9</span><span class="stat-label">0–100 km/h (s)</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-val">310</span><span class="stat-label">Top Speed km/h</span></div>
+      </div>
+      <div class="hero-cta">
+        <span class="scroll-hint">SCROLL TO EXPLORE</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+    <div class="hero-side-label">LAMBORGHINI HURACÁN STO</div>
+  </section>
+
+  <!-- Engine Section -->
+  <section id="engine" class="section component-section" data-component="engine">
+    <div class="component-content left">
+      <div class="comp-number">01</div>
+      <div class="comp-tag">POWER UNIT</div>
+      <h2 class="comp-title">V10 NATURALLY<br/>ASPIRATED ENGINE</h2>
+      <p class="comp-desc">The heart of the Huracán STO — a 5.2-litre V10 engine producing 640 CV at 8,000 rpm. No turbos, no compromises. Pure, raw combustion reaching a screaming 8,500 rpm redline that sends shockwaves through your spine.</p>
+      <div class="comp-specs">
+        <div class="spec-row"><span class="spec-key">Displacement</span><span class="spec-val">5,204 cc</span></div>
+        <div class="spec-row"><span class="spec-key">Max Power</span><span class="spec-val">640 CV @ 8,000 rpm</span></div>
+        <div class="spec-row"><span class="spec-key">Max Torque</span><span class="spec-val">565 Nm @ 6,500 rpm</span></div>
+        <div class="spec-row"><span class="spec-key">Configuration</span><span class="spec-val">V10 Mid-Mounted</span></div>
+        <div class="spec-row"><span class="spec-key">Redline</span><span class="spec-val">8,500 rpm</span></div>
+      </div>
+    </div>
+    <div class="section-glow engine-glow"></div>
+  </section>
+
+  <!-- Aerodynamics Section -->
+  <section id="aero" class="section component-section" data-component="aero">
+    <div class="component-content right">
+      <div class="comp-number">02</div>
+      <div class="comp-tag">AERODYNAMICS</div>
+      <h2 class="comp-title">ACTIVE AERO<br/>SYSTEM</h2>
+      <p class="comp-desc">STO's carbon-fiber bodywork is a masterpiece of aerodynamic engineering. The massive rear wing generates 420 kg of downforce at 280 km/h, pinning the car to the road while the front splitter and side blades channel air with surgical precision.</p>
+      <div class="comp-specs">
+        <div class="spec-row"><span class="spec-key">Downforce</span><span class="spec-val">420 kg @ 280 km/h</span></div>
+        <div class="spec-row"><span class="spec-key">Body Material</span><span class="spec-val">Carbon Fiber (75%)</span></div>
+        <div class="spec-row"><span class="spec-key">Rear Wing</span><span class="spec-val">3-Position Adjustable</span></div>
+        <div class="spec-row"><span class="spec-key">Front Splitter</span><span class="spec-val">Active Ground Effect</span></div>
+        <div class="spec-row"><span class="spec-key">Drag Coefficient</span><span class="spec-val">0.30 Cd</span></div>
+      </div>
+    </div>
+    <div class="section-glow aero-glow"></div>
+  </section>
+
+  <!-- Wheels Section -->
+  <section id="wheels" class="section component-section" data-component="wheels">
+    <div class="component-content left">
+      <div class="comp-number">03</div>
+      <div class="comp-tag">PERFORMANCE WHEELS</div>
+      <h2 class="comp-title">FORGED<br/>MAGNESIUM WHEELS</h2>
+      <p class="comp-desc">Ultra-lightweight forged magnesium wheels wrapped in Bridgestone Potenza Race tires developed exclusively for the STO. Paired with Brembo carbon-ceramic brakes that can shed 100 km/h in just 32 metres.</p>
+      <div class="comp-specs">
+        <div class="spec-row"><span class="spec-key">Front</span><span class="spec-val">245/30 ZR20</span></div>
+        <div class="spec-row"><span class="spec-key">Rear</span><span class="spec-val">305/30 ZR20</span></div>
+        <div class="spec-row"><span class="spec-key">Wheel Material</span><span class="spec-val">Forged Magnesium</span></div>
+        <div class="spec-row"><span class="spec-key">Brakes</span><span class="spec-val">Brembo Carbon-Ceramic</span></div>
+        <div class="spec-row"><span class="spec-key">Brake Distance</span><span class="spec-val">32m (100–0 km/h)</span></div>
+      </div>
+    </div>
+    <div class="section-glow wheels-glow"></div>
+  </section>
+
+  <!-- Interior Section -->
+  <section id="interior" class="section component-section" data-component="interior">
+    <div class="component-content right">
+      <div class="comp-number">04</div>
+      <div class="comp-tag">COCKPIT</div>
+      <h2 class="comp-title">RACE-BRED<br/>INTERIOR</h2>
+      <p class="comp-desc">The cockpit is built for one purpose — lap times. FIA-approved roll cage, carbon-fiber racing seats with six-point harnesses, and a fighter-jet-inspired dashboard with Lamborghini Dinamica Veicolo Integrata (LDVI) at its core.</p>
+      <div class="comp-specs">
+        <div class="spec-row"><span class="spec-key">Seats</span><span class="spec-val">Carbon Racing Bucket</span></div>
+        <div class="spec-row"><span class="spec-key">Harness</span><span class="spec-val">6-Point Racing Belt</span></div>
+        <div class="spec-row"><span class="spec-key">Display</span><span class="spec-val">12.3" TFT + HUD</span></div>
+        <div class="spec-row"><span class="spec-key">System</span><span class="spec-val">LDVI AI Control</span></div>
+        <div class="spec-row"><span class="spec-key">Weight Saving</span><span class="spec-val">–43 kg vs Evo</span></div>
+      </div>
+    </div>
+    <div class="section-glow interior-glow"></div>
+  </section>
+
+  <!-- Exhaust Section -->
+  <section id="exhaust" class="section component-section" data-component="exhaust">
+    <div class="component-content left">
+      <div class="comp-number">05</div>
+      <div class="comp-tag">EXHAUST SYSTEM</div>
+      <h2 class="comp-title">TITANIUM<br/>EXHAUST SYSTEM</h2>
+      <p class="comp-desc">A titanium Akrapovič exhaust system that saves 3.2 kg while unleashing a symphonic roar worthy of Sant'Agata. Three centrally placed exhaust pipes create a unique soundtrack — a V10 war cry at 8,500 rpm that echoes through mountains.</p>
+      <div class="comp-specs">
+        <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Titanium Alloy</span></div>
+        <div class="spec-row"><span class="spec-key">Brand</span><span class="spec-val">Akrapovič</span></div>
+        <div class="spec-row"><span class="spec-key">Weight Saved</span><span class="spec-val">–3.2 kg</span></div>
+        <div class="spec-row"><span class="spec-key">Configuration</span><span class="spec-val">3 Central Pipes</span></div>
+        <div class="spec-row"><span class="spec-key">Sound Level</span><span class="spec-val">128 dB @ Redline</span></div>
+      </div>
+    </div>
+    <div class="section-glow exhaust-glow"></div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="finale" class="section finale-section">
+    <div class="finale-content">
+      <p class="finale-sub">THE ULTIMATE ITALIAN SUPERCAR</p>
+      <h2 class="finale-title">EXPERIENCE THE<br/><span class="finale-accent">LEGEND</span></h2>
+      <p class="finale-desc">Every curve engineered. Every component perfected. This is not just a car — it is a statement.</p>
+      <button class="cta-btn" id="ctaBtn">
+        <span>CONFIGURE YOURS</span>
+        <svg viewBox="0 0 24 24" class="btn-arrow"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="finale-bg-text">LAMBORGHINI</div>
+  </section>
+
+  <!-- Speed Overlay -->
+  <div id="speedOverlay" class="speed-overlay">
+    <div class="speed-gauge">
+      <canvas id="gaugeCanvas" width="200" height="200"></canvas>
+      <div class="speed-display">
+        <span id="speedNum">0</span>
+        <span class="speed-unit">km/h</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Component highlight tooltip -->
+  <div id="partTooltip" class="part-tooltip"></div>
+
+  <!-- Three.js core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GLTFLoader (needed to load .glb files) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <!-- DRACOLoader (decompresses Draco-compressed GLBs) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
