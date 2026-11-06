@@ -16,9 +16,12 @@
   <!-- Loading Screen -->
   <div id="loader">
     <div class="loader-inner">
+      <div class="loader-badge"></div>
       <div class="loader-logo">LAMBORGHINI</div>
+      <div class="loader-model">HURACÁN STO — 2024</div>
       <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
       <div class="loader-percent" id="loaderPercent">0%</div>
+      <div class="loader-status">INITIALISING 3D ENGINE</div>
     </div>
   </div>
 
@@ -26,6 +29,7 @@
   <nav id="navbar">
     <div class="nav-brand">
       <span class="nav-bull">🐂</span>
+      <span class="nav-brand-divider"></span>
       <span class="nav-name">LAMBORGHINI</span>
     </div>
     <ul class="nav-links">
@@ -36,7 +40,12 @@
       <li><a href="#interior" class="nav-link">INTERIOR</a></li>
       <li><a href="#exhaust" class="nav-link">EXHAUST</a></li>
     </ul>
-    <div class="nav-speed" id="navSpeed">0 km/h</div>
+    <div class="nav-right">
+      <div class="nav-speed" id="navSpeed">0 km/h</div>
+      <div class="nav-hamburger" id="navHamburger" aria-label="Menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
   </nav>
 
   <!-- Scroll Progress -->
@@ -54,7 +63,7 @@
       <h1 class="hero-title">HURACÁN<br/><span class="hero-accent">STO</span></h1>
       <p class="hero-desc">Born from the racetrack. Built for the road.<br/>640 horsepower of pure Italian engineering.</p>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-val">640</span><span class="stat-label">HP</span></div>
+        <div class="stat"><span class="stat-val">640</span><span class="stat-label">Horsepower</span></div>
         <div class="stat-divider"></div>
         <div class="stat"><span class="stat-val">2.9</span><span class="stat-label">0–100 km/h (s)</span></div>
         <div class="stat-divider"></div>
@@ -65,7 +74,7 @@
         <div class="scroll-arrow"></div>
       </div>
     </div>
-    <div class="hero-side-label">LAMBORGHINI HURACÁN STO</div>
+    <div class="hero-side-label">LAMBORGHINI HURACÁN STO — SANT'AGATA BOLOGNESE</div>
   </section>
 
   <!-- Engine Section -->
@@ -84,6 +93,8 @@
       </div>
     </div>
     <div class="section-glow engine-glow"></div>
+    <div class="section-watermark">01</div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Aerodynamics Section -->
@@ -102,6 +113,8 @@
       </div>
     </div>
     <div class="section-glow aero-glow"></div>
+    <div class="section-watermark">02</div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Wheels Section -->
@@ -120,6 +133,8 @@
       </div>
     </div>
     <div class="section-glow wheels-glow"></div>
+    <div class="section-watermark">03</div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Interior Section -->
@@ -138,6 +153,8 @@
       </div>
     </div>
     <div class="section-glow interior-glow"></div>
+    <div class="section-watermark">04</div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Exhaust Section -->
@@ -156,11 +173,18 @@
       </div>
     </div>
     <div class="section-glow exhaust-glow"></div>
+    <div class="section-watermark">05</div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Final CTA -->
   <section id="finale" class="section finale-section">
     <div class="finale-content">
+      <div class="finale-separator">
+        <div class="finale-sep-line"></div>
+        <span class="finale-sep-icon">🐂</span>
+        <div class="finale-sep-line"></div>
+      </div>
       <p class="finale-sub">THE ULTIMATE ITALIAN SUPERCAR</p>
       <h2 class="finale-title">EXPERIENCE THE<br/><span class="finale-accent">LEGEND</span></h2>
       <p class="finale-desc">Every curve engineered. Every component perfected. This is not just a car — it is a statement.</p>
@@ -176,10 +200,12 @@
   <div id="speedOverlay" class="speed-overlay">
     <div class="speed-gauge">
       <canvas id="gaugeCanvas" width="200" height="200"></canvas>
+      <div class="speed-label">VELOCITY</div>
       <div class="speed-display">
         <span id="speedNum">0</span>
         <span class="speed-unit">km/h</span>
       </div>
+      <div class="speed-mode" id="speedMode">CORSA</div>
     </div>
   </div>
 
