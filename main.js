@@ -19,6 +19,15 @@ document.addEventListener('mousemove', (e) => {
 const loaderBar    = document.getElementById('loaderBar');
 const loaderPct    = document.getElementById('loaderPercent');
 const loaderEl     = document.getElementById('loader');
+const loaderStatus = document.querySelector('.loader-status');
+
+const statusMessages = [
+  'INITIALISING 3D ENGINE',
+  'LOADING GEOMETRY',
+  'APPLYING MATERIALS',
+  'CONFIGURING LIGHTING',
+  'READY'
+];
 
 // We start loading; the actual 100% fires when the GLB is ready.
 let fakeProgress   = 0;
@@ -31,10 +40,15 @@ const fakeTimer    = setInterval(() => {
 function setLoaderProgress(p) {
   loaderBar.style.width   = p + '%';
   loaderPct.textContent   = Math.round(p) + '%';
+  if (loaderStatus) {
+    const idx = Math.min(Math.floor(p / 22), statusMessages.length - 1);
+    loaderStatus.textContent = statusMessages[idx];
+  }
 }
 function finishLoader() {
   setLoaderProgress(100);
-  setTimeout(() => { loaderEl.classList.add('hidden'); startAnimate(); }, 500);
+  if (loaderStatus) loaderStatus.textContent = 'READY';
+  setTimeout(() => { loaderEl.classList.add('hidden'); startAnimate(); }, 600);
 }
 
 /* ═══════════════════════════════════════════
@@ -356,6 +370,12 @@ const scrollBarEl  = document.getElementById('scrollBar');
 const navSpeedEl   = document.getElementById('navSpeed');
 const speedOverlay = document.getElementById('speedOverlay');
 const speedNumEl   = document.getElementById('speedNum');
+const speedModeEl  = document.getElementById('speedMode');
+
+const SPEED_MODES = {
+  hero: 'STRADA', engine: 'CORSA', aero: 'CORSA+',
+  wheels: 'SPORT', interior: 'STRADA', exhaust: 'CORSA', finale: 'STRADA'
+};
 
 function initScroll() {
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -384,6 +404,9 @@ function onScroll() {
     if (targetSpeed > 0) speedOverlay.classList.add('visible');
     else                 speedOverlay.classList.remove('visible');
 
+    // Update speed mode label
+    if (speedModeEl) speedModeEl.textContent = SPEED_MODES[active] || 'STRADA';
+
     // Nav active
     document.querySelectorAll('.nav-link').forEach(l =>
       l.classList.toggle('active', l.getAttribute('href') === '#' + active)
@@ -399,7 +422,7 @@ function initObserver() {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       e.target.classList.add('visible');
-      e.target.querySelectorAll('.section-glow, .finale-sub, .finale-title, .finale-desc, .cta-btn')
+      e.target.querySelectorAll('.section-glow, .finale-sub, .finale-title, .finale-desc, .cta-btn, .finale-separator')
         .forEach(el => el.classList.add('visible'));
     });
   }, { threshold: 0.2 });
@@ -428,6 +451,8 @@ function startAnimate() {
     const spd    = Math.round(currentSpeed);
     speedNumEl.textContent = spd;
     navSpeedEl.textContent = spd + ' km/h';
+    // highlight nav speed when going fast
+    navSpeedEl.classList.toggle('fast', currentSpeed > 150);
     drawGauge(currentSpeed);
     const sf = currentSpeed / 310; // speed factor 0-1
 
@@ -494,6 +519,26 @@ function initNavbar() {
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
   });
+
+  // Mobile hamburger toggle
+  const ham = document.getElementById('navHamburger');
+  const links = document.querySelector('.nav-links');
+  if (ham && links) {
+    ham.addEventListener('click', () => {
+      const open = links.style.display === 'flex';
+      links.style.display = open ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'fixed';
+      links.style.top = '60px';
+      links.style.right = '1.5rem';
+      links.style.background = 'rgba(5,5,7,0.98)';
+      links.style.border = '1px solid rgba(201,162,39,0.2)';
+      links.style.padding = '1rem 1.5rem';
+      links.style.gap = '1rem';
+      links.style.backdropFilter = 'blur(10px)';
+      if (open) links.style.display = 'none';
+    });
+  }
 }
 
 /* ═══════════════════════════════════════════
